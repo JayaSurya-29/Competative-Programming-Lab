@@ -1,0 +1,14 @@
+n=int(input())
+arr=map(float,input().split())
+buckets=[]
+for i in range(n):
+    buckets.append([])
+for x in arr:
+    index=int(x*n)
+    buckets[index].append(x)
+result=[]
+for b in buckets:
+    b.sort()
+    result.extend(b)
+for x in result:
+    print(f"{x:.2f}",end=" ")
