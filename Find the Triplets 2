@@ -1,0 +1,19 @@
+n=int(input())
+arr=sorted(map(int,input().split()))
+x=int(input())
+found=False
+for i in range(n- 2):
+    l,r=i+1,n-1
+    while l<r:
+        s=arr[i]+arr[l]+arr[r]
+        if s==x:
+            print(arr[i],arr[l],arr[r])
+            found=True
+            l+=1
+            r-=1
+        elif s<x:
+            l+=1
+        else:
+            r-=1
+if not found:
+    print("No Triplet Found")
