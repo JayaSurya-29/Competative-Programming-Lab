@@ -1,0 +1,19 @@
+s=input()
+visited=0
+duplicates=0
+for char in s:
+    bit=ord(char)-ord('a')
+    if (visited&(1<<bit))!=0:
+        duplicates|=(1<<bit)
+    else:
+        visited|=(1<<bit)
+printed=0
+has_duplicate=False
+for char in s:
+    bit=ord(char)-ord('a')
+    if (duplicates&(1<<bit))!=0 and (printed&(1<<bit))==0:
+        print(char,end=' ')
+        printed|=(1<<bit)
+        has_duplicate=True
+if not has_duplicate:
+    print("No duplicates")
