@@ -1,0 +1,17 @@
+n=int(input())
+words=input().split(",")
+pattern=input()
+match=[]
+for word in words:
+    abbr=''
+    for ch in word:
+        if ch.isupper():
+            abbr+=ch
+    if abbr.startswith(pattern):
+        match.append((abbr,word))
+match.sort()
+if len(match)==0:
+    print("No match found")
+else:
+    for abbr,word in match:
+        print(word)
